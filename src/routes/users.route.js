@@ -3,8 +3,6 @@ const router = express.Router()
 const userHelper = require('../controllers/users.controller')
 const authverify = require('../middlewares/userVerifier')
 
-
-
 router.post('/create', userHelper.createUser)
 router.get('/all', authverify.verifyToken, userHelper.getAllUsers)
 router.post('/login', userHelper.userLogin)

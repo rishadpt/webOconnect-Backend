@@ -25,4 +25,4 @@ const changePassword = joi.object({
     password: joi.string().min(8).required()
 })
 
-module.exports = { userScheme, loginValidation ,editValidation,changePassword};
+module.exports = { userScheme, loginValidation, editValidation, changePassword };
