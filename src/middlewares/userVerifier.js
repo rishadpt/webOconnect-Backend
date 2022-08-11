@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken')
 
 module.exports = {
@@ -7,7 +6,7 @@ module.exports = {
 
         let authHeader = req.headers.authorization
         if (authHeader === undefined) {
-            res.status(401).send({ status: "FAILED", message: 'no token provided' })
+            res.status(401).send({ status: "FAILED", message: 'User not Authorized' })
         }
 
         let token = authHeader.split(" ")[1]
@@ -20,4 +19,5 @@ module.exports = {
             }
         })
     }
+
 } 

@@ -9,7 +9,7 @@ app.use(cors())   //cors Configuration for development
 const PORT = process.env.PORT || 8080
 
 // Body parser
-app.use(express.json());    
+app.use(express.json());        
 app.use(express.urlencoded({ extended: true }));
 
 
