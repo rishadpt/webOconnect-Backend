@@ -38,11 +38,11 @@ const userLogin = async (req, res) => {
                 status: "failed"
             })
         } else {
-        res.status(500).send({
-            message: err.toString(),
-            status: "failed"
-        })
-    }
+            res.status(500).send({
+                message: err.toString(),
+                status: "failed"
+            })
+        }
     }
 }
 
@@ -81,7 +81,7 @@ const createUser = async (req, res) => {
 //Get all users
 const getAllUsers = async (req, res) => {
     try {
-        const users = await User.findAll();
+        const users = await User.findAll({attributes: {exclude: ['password']}});
         res.status(200).send(users);
     } catch (err) {
         res.status(500).send({
@@ -94,7 +94,7 @@ const getUserbyID = async (req, res) => {
 
     try {
         const { id } = req.params;
-        const user = await User.findOne({ where: { id } });
+        const user = await User.findOne({ where: { id } ,attributes: {exclude: ['password']}});
         if (user) {
             res.status(200).send(user);
         } else {
