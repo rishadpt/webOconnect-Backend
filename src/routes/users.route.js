@@ -12,4 +12,5 @@ router.patch('/edit/:id', authverify.verifyToken, userHelper.editUser)
 router.patch('/changepassword/:id', authverify.verifyToken, userHelper.changePassword)
 router.delete('/delete/:id', authverify.verifyToken, userHelper.deleteUser)
 router.patch('/status/:id', authverify.verifyToken, userHelper.changeStatus)
+router.post('/renew', authverify.verifyToken, userHelper.renewAccestoken)
 module.exports = router;

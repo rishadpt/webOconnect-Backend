@@ -9,7 +9,7 @@ app.use(cors())   //cors Configuration for development
 const PORT = process.env.PORT || 8080
 
 // Body parser
-app.use(express.json());        
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 const userRouter = require('./src/routes/users.route');
 
 
-app.use("/api/user/", userRouter);
+app.use("/api/user/", userRouter);        //userRouter base   {/api/user/ }
 
 
 
@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
 });
 
 
-    // connect to the database 
-  db.sequelize.sync()
+// connect to the database 
+db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
   })
@@ -38,8 +38,7 @@ app.get("/", (req, res) => {
 
 
 
-  // Creating server
+// Creating server
 app.listen(PORT, () => {
-    console.log(`Server is up and running on the port ${PORT}`);
-  })    //listen to the port
-  
+  console.log(`Server is up and running on the port ${PORT}`);
+})    //listen to the port

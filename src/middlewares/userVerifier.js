@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-
+    //auth verifer middleware
     verifyToken: (req, res, next) => {
 
         let authHeader = req.headers.authorization

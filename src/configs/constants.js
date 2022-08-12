@@ -1,0 +1,7 @@
+const statusCode = {
+    BAD_REQUEST:406,
+    SUCCESS:200,
+    NOT_FOUND:404,
+    UN_AUTHORIZED:401,
+    INTERNAL_SERVER_ERROR:500,
+}
