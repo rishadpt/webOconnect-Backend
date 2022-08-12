@@ -147,19 +147,23 @@ const editUser = async (req, res) => {      //editUser function name, email
         const isExistemail = await User.findAll({ where: { email } });
         const isExistphone = await User.findAll({ where: { phone } });
         if (user) {
-            if (isExistname) {
+         
+            if (isExistname.length >1) {
                 return res.status(400).send({
                     message: 'Name already exists',
-                    status: 'failed'
+                    status: 'failed',
+                    isExistname,
+                    isExistemail,
+                    isExistphone
                 })
             }
-            else if (isExistemail) {
+            else if (isExistname.length >1) {
                 return res.status(400).send({
                     message: 'Email already exists',
                     status: 'failed'
                 })
             }
-            else if (isExistphone) {
+            else if (isExistname.length >1) {
                 return res.status(400).send({
                     message: 'Phone already exists',
                     status: 'failed'
