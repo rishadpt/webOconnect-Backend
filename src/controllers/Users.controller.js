@@ -53,7 +53,7 @@ const createUser = async (req, res) => {
 
     try {
         const { name, email, password, phone, gender } = req.body;  //destructuring the req.body
-        const result = await validation.userScheme.validateAsync(name, email, password, phone, gender); //validating the req.body
+        const result = await validation.userScheme.validateAsync(req.body); //validating the req.body
         const userdata = {                         // creating new user object
             name,
             email,
@@ -74,7 +74,7 @@ const createUser = async (req, res) => {
 
     } catch (err) {
         return res.status(500).send({
-            message: "Failed to Create user",
+            message: err.toString(),
             status: "failed"
         })
     }
